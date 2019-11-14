@@ -1,5 +1,5 @@
 module.exports = {
-	base: '/',
+	base: '/Kirja/',
 	title: 'Kirja',
 	description: 'Static website built with VuePress and deployed on Github Pages',
     dest: './docs',
