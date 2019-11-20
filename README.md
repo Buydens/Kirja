@@ -5,7 +5,7 @@ heroImage: /hero.png
 heroText: Hero Title
 tagline: Hero subtitle
 actionText: Get Designing →
-actionLink: /guide/
+actionLink: /Kaastaart/
 features:
 - title: Simplicity First
   details: Minimal setup with markdown-centered project structure helps you focus on writing.
