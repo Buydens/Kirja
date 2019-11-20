@@ -13,7 +13,11 @@
         {{ data.tagline || $description || 'Welcome to your VuePress site' }}
       </p>
     <p>
-        <a href="/kaastaart">Kaastaart</a>
+        <router-link :to="'/Kaastaart'">
+    <h1>
+        router test 
+    </h1>
+</router-link>
     </p>
       <p
         class="action"
