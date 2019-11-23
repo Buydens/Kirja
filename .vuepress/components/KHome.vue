@@ -1,33 +1,25 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
+    <!--
       <img
         v-if="data.heroImage"
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
       >
-
+    -->
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
 
       <p class="description">
-        {{ data.tagline || $description || 'Welcome to your VuePress site' }}
+        {{ data.tagline || $description || 'Kirja!' }}
       </p>
-    <p>
-        <router-link :to="'/Kaastaart'">
-    <h1>
-        router test 
-    </h1>
-</router-link>
-    </p>
-      <p
-        class="action"
-        v-if="data.actionText && data.actionLink"
-      >
-        <NavLink
-          class="action-button"
-          :item="actionLink"
-        />
-      </p>
+
+    <div v-if="data.startLinks && data.startLinks.length">
+        <router-link  tag="button" class="action-button" v-for="(startLinks, index) in data.startLinks" :key="index" :to="startLinks.destination">
+                {{ startLinks.title }}
+        </router-link>
+    </div>
+
     </header>
 
     <div
@@ -57,20 +49,11 @@
 
 <script>
 import NavLink from '@theme/components/NavLink.vue'
-
 export default {
   components: { NavLink },
-
   computed: {
     data () {
       return this.$page.frontmatter
-    },
-
-    actionLink () {
-      return {
-        link: this.data.actionLink,
-        text: this.data.actionText
-      }
     }
   }
 }
@@ -136,7 +119,6 @@ export default {
     border-top 1px solid $borderColor
     text-align center
     color lighten($textColor, 25%)
-
 @media (max-width: $MQMobile)
   .home
     .features
@@ -144,7 +126,6 @@ export default {
     .feature
       max-width 100%
       padding 0 2.5rem
-
 @media (max-width: $MQMobileNarrow)
   .home
     padding-left 1.5rem
